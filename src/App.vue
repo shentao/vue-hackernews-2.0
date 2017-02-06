@@ -5,6 +5,8 @@
         <router-link to="/" exact>
           <img class="logo" src="~public/logo-48.png" alt="logo">
         </router-link>
+        <my-comp :function-prop="customFunction"></my-comp>
+        <my-comp></my-comp>
         <router-link to="/top">Top</router-link>
         <router-link to="/new">New</router-link>
         <router-link to="/show">Show</router-link>
@@ -20,6 +22,19 @@
     </transition>
   </div>
 </template>
+
+<script>
+import MyComp from './MyComp.vue'
+
+export default {
+  components: { MyComp },
+  methods: {
+    customFunction (x) {
+      return 'Passed function result: ' + x
+    }
+  }
+}
+</script>
 
 <style lang="stylus">
 body
